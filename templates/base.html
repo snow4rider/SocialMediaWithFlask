@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+	<header>
+   <nav>
+     <ul>
+       {% for item in nav.top %}
+       <li class="{{ 'active' if item.is_active else '' }}">
+         <a href="{{ item.url }}">{{ item.label }}</a>
+       </li>
+       {% endfor %}
+     </ul>
+   </nav>
+	
+	</header>
+	<main>{% block main %}{% endblock %}</main>
+	<footer>
+    <p>By Matthew Mckenney</p>
+	</footer>
+</body>
+
+</html>
